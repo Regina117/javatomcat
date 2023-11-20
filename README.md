@@ -1,7 +1,7 @@
 ## JavaStack
 
 #### Used teknolojies
-- Vagrant (with VirtualBox)
+- AWS (EC2,S3,Route53,ELB,Security Groups)
 - Bash
 - Maven
 - JSP
@@ -9,6 +9,5 @@
 - MySQL
 - Memcached
 - Rabbitmq
-- Nginx
 
-![Stack](Stack.png)
+![Stack](LiftShift.png)

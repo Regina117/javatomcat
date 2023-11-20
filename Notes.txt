@@ -1,0 +1,37 @@
+1- Backend Security Group:
+- allow traffic into MySQL service from tomcat
+- allow traffic into RabbitMQ service from tomcat
+- allow traffic into Memcached service from tomcat
+- after the creation allow the traffic between the services by using same SG
+
+2- App Security Group:
+- allow traffic into tomcat from the load balancer only
+
+3- LoadBalancer Security Group:
+- allow HTTPS/HTTP traffic (map tomcat port 8080 while creating the loadbalancer)
+- attach the ACM certificate the the loadbalancer while creating
+
+4- Create an internal domain with internal subdomains using Route53 so you can use it within the VPC and write those subdomains inside of the environment variables in the application 
+
+5- Use Redhat or Centos AMIs
+
+6- pass the user-data for each service while creating them (it takes time to get ready)
+
+7- build the project with (mvn install) before that make sure that pom.xml is exisiting
+and your application.properties file contains the correct addresses of the services
+
+8- You have to build the artifact localy and pass it to S3 Bucket using aws command after that you have to create S3 IAM role to copy the artifact from S3 onto Tomcat ec2 instance
+
+9- route your primary domain to the loadbalancer ip address 
+
+10- create an AMI from tomcat ec2 use it while create the template then create your auto scaling group W
+
+# aws commands:
+1- aws configure
+   you have to create user who can only read and write s3 buckets
+   create an access key for hem then login to CLI
+2- aws s3 mb s3://S3-BUCKET-NAME
+3- aws s3 ls
+4- aws s3 cp target/project.war s3://S3-BUCKET-NAME/
+
+
