@@ -1,7 +1,9 @@
 ## JavaStack
 
 #### Used teknolojies
-- AWS (EC2,S3,Route53,ELB,Security Groups)
+- AWS (Beanstalk,S3,ElastiCache,Amazon MQ,RDS,Security Groups,CloudFront)
+- PaaS
+- SaaS
 - Bash
 - Maven
 - JSP
@@ -10,4 +12,4 @@
 - Memcached
 - Rabbitmq
 
-![Stack](LiftShift.png)
+![Stack](PaaS.png)

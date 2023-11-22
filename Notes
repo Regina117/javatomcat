@@ -1,0 +1,10 @@
+1- set the backend security group 
+2- create parameter group & subnet group then the RDS
+3- create parameter group & subnet group then the ElastiCashe cluster with one node
+4- create a temporary ec2 instance with ssh allowed security group to reach the rds through it
+5- install mysql-client to that ec2 then clone the repo and import the database using mysql command
+6- lunch a beanstalk application with its requirements
+7- enable ACL on the S3 bucket
+8- add port 443 listener to beanstalk for the ssl using your ACM that you've been created from Certificate Manager
+9- remanage the security group of the backend services and allow the Beanstalk security group to reach them using their ports
+10- edit application environments then apply the artifact onto beanstalk
