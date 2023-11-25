@@ -2,7 +2,7 @@ FROM openjdk:11 as build
 RUN apt update && apt install maven -y
 RUN git clone https://github.com/MuhanedYahya/JavaStack.git
 # to switch to specific branch we can use -> git checkout docker
-RUN cd JavaStack && git checkout docker && mvn install
+RUN cd JavaStack && git fetch && git checkout origin/docker && mvn install
 
 FROM tomcat:9-jre11
 LABEL "Project"="JavaStack"

@@ -1,7 +1,8 @@
 FROM mysql:8.0.33
 LABEL "Project"="JavaStack"
 LABEL "Author"="Muhaned"
-
+ENV MYSQL_USER="admin"
+ENV MYSQL_PASSWORD="admin123"
 ENV MYSQL_ROOT_PASSWORD="admin123"
 ENV MYSQL_DATABASE="accounts"
 

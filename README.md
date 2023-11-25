@@ -1,9 +1,9 @@
 ## JavaStack
 
 #### Used teknolojies
-- AWS (Beanstalk,S3,ElastiCache,Amazon MQ,RDS,Security Groups,CloudFront)
-- PaaS
-- SaaS
+- Docker
+- Docker Compose
+- Vagrant
 - Bash
 - Maven
 - JSP
@@ -12,4 +12,4 @@
 - Memcached
 - Rabbitmq
 
-![Stack](PaaS.png)
+![Stack](docker.png)
