@@ -19,23 +19,23 @@ services:
     container_name: app
     ports:
       - "8080:8080"
-  db01:
+  db:
     build: 
       context: docker-files/db
     image: muhanedyahya/javastack-db
-    container_name: db01
+    container_name: db
     ports:
       - "3306:3306"
-  mc01:
+  memcached:
     image: memcached:alpine
-    container_name: mc01
+    container_name: memcached
     ports:
       - "11211:11211"
-  rmq01:
+  rabbitmq:
     image: rabbitmq:alpine
     environment:
       - RABBITMQ_DEFAULT_USER=test
       - RABBITMQ_DEFAULT_PASS=test
-    container_name: rmq01
+    container_name: rabbitmq
     ports:
       - "5672:5672"
