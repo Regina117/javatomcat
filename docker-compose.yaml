@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  web:
+    build: 
+      context:  docker-files/web
+    image: muhanedyahya/javastack-web
+    container_name: javastack-web
+    ports:
+      - "80:80"
+    depends_on:
+      - db01
+      - mc01
+      - rmq01
+      - app
+  app:
+    build: 
+      context: docker-files/app
+    image: muhanedyahya/javastack-app
+    container_name: app
+    ports:
+      - "8080:8080"
+  db01:
+    build: 
+      context: docker-files/db
+    image: muhanedyahya/javastack-db
+    container_name: db01
+    ports:
+      - "3306:3306"
+  mc01:
+    image: memcached:alpine
+    container_name: mc01
+    ports:
+      - "11211:11211"
+  rmq01:
+    image: rabbitmq:alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=test
+      - RABBITMQ_DEFAULT_PASS=test
+    container_name: rmq01
+    ports:
+      - "5672:5672"
