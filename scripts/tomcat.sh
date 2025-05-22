@@ -1,9 +1,15 @@
 
 #!/bin/bash
 
-# Обновление пакетов и установка зависимостей
 sudo apt update
+sudo apt install mc
 sudo apt install -y openjdk-8-jdk maven wget
+sudo apt install -y mysql-server
+sudo systemctl enable mysql
+sudo systemctl start mysql
+sudo apt install -y redis redis-tools
+sudo systemctl enable redis-server.service
+sudo systemctl start redis-server.service
 
 export MAVEN_OPTS="-Xmx2048m -Xms512m"
 
@@ -79,9 +85,11 @@ sudo systemctl status tomcat
 cat <<EOF | sudo tee -a /opt/tomcat/conf/tomcat-users.xml
 <role rolename="manager-gui"/>
 <role rolename="admin-gui"/>
-<user username="admin" password="admin123" roles="manager-gui,admin-gui"/>
+<user username="multi" password="multidev" roles="manager-gui,admin-gui"/>
 EOF
 
 sudo sed -i 's/<Context>/<Context privileged="true" antiResourceLocking="false" crossContext="true">/' /opt/tomcat/webapps/manager/META-INF/context.xml
 
-echo "Tomcat is running and accessible at http://your-server-ip:8080/"
+echo "Tomcat is running and accessible at http://192.168.56.11:8080/"
+
+
